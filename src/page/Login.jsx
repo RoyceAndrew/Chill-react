@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { InputForm } from "../component/InputForm";
 
 export const Login = () => {
-    return <section id="register" className="login-back h-screen w-screen bg-cover bg-no-repeat bg-center flex justify-center items-center">
+    return <section id="register" className="bg-[url('/picture/loginbackground.jpg');] h-screen w-screen bg-cover bg-no-repeat bg-center flex justify-center items-center">
         <form className="flex flex-col items-center h-auto bg-backColor w-auto justify-center p-[20px]  rounded-[10px]" onSubmit={(e) => e.preventDefault}>
          <Link to="/homepage"><img className="lg:m-[30px] m-[10px]" src="./picture/Logo.png" alt="Chill-logo" /></Link>
          <h2 className="lg:text-4xl text-2xl font-semibold">Masuk</h2>
