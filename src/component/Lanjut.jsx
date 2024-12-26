@@ -7,10 +7,10 @@ export const Lanjut = () => {
     <div>
     <h2 className="lg:text-[30px] text-[20px] relative z-10">Melanjutkan Tonton Film</h2>
     <div id="scroll" className="gap-5 mt-5 flex relative  w-full  justify-start">
-    <ImgList horiz={false} src="./public/picture/batman.png"/>
-    <ImgList horiz={false} src="./public/picture/bluelock.png"/>
-    <ImgList horiz={false} src="./public/picture/midfilm.png"/>
-    <ImgList horiz={false} src="./public/picture/otto.png"/>
+    <ImgList horiz={false} src="./picture/batman.png"/>
+    <ImgList horiz={false} src="./picture/bluelock.png"/>
+    <ImgList horiz={false} src="./picture/midfilm.png"/>
+    <ImgList horiz={false} src="./picture/otto.png"/>
     </div>
 </div>
 </section>

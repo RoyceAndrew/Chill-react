@@ -13,7 +13,7 @@ export const Hero = () => {
     
 
     return <section id="hero">
-    <img  className={`object-cover w-full ease-out duration-500 transition-all max-h-[850px] min-h-[400px] object-top ${fixed ? "mt-0" : "mt-[80px]"}`} src="./public/picture/suzume.png" alt="hero-img"/>
+    <img  className={`object-cover w-full ease-out duration-500 transition-all max-h-[850px] min-h-[400px] object-top ${fixed ? "mt-0" : "mt-[80px]"}`} src="./picture/suzume.png" alt="hero-img"/>
     <div  className="relative z-30 flex flex-col gap-5 pt-[350px] px-5 h-[600px] -mt-[600px] bg-home-gradient">
        <h1 className="text-[40px]">Suzume</h1>
        <p id="desc" className="w-[50%] text-[16px]">Suzume No Tojimari berkisah tentang petualangan seorang perempuan bernama Suzume dan lelaki misterius bernama Souta dalam mencegah bencana gempa bumi terjadi di seantero Jepang. Bencana itu terjadi lantaran sebelumnya Suzume tertarik pada kekuatan sebuah pintu lapuk dan membuka kenopnya.</p>
