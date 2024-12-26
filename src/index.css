@@ -15,6 +15,14 @@ html {
     background-color: rgb(30, 30, 30);
 }
 
+.login-back {
+    background-image: url("./picture/loginbackground.jpg");
+}
+
+.register-back {
+    background-image: url("./picture/registerbackground.jpg");
+}
+
 main {
     min-height: calc(100vh - 370px);
   }
