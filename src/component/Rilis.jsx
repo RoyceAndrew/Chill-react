@@ -1,7 +1,7 @@
 import { ImgList } from "./ImgList"
 
 export const Rilis = () => {
-    return <section className="p-[20px] flex-1 mb-[100px] flex items-start lg:items-center justify-center bg-home-color flex-col w-full" id="series">
+    return <section className="p-[20px] flex-1 mb-[100px] flex items-start justify-center bg-home-color flex-col w-full" id="series">
     <div>
         <h2 className="lg:text-[30px] text-[20px]">Rilis Baru</h2>
         <div className=" flex lg:gap-[35px] gap-[20px] mt-[20px] w-full justify-start">
