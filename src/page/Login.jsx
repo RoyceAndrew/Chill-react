@@ -3,10 +3,10 @@ import { InputForm } from "../component/InputForm";
 
 export const Login = () => {
     return <section id="register" className="bg-login-back h-screen w-screen bg-cover bg-no-repeat bg-center flex justify-center items-center">
-        <form className="flex flex-col items-center h-auto bg-backColor w-auto justify-center p-[20px] rounded-[10px]" onSubmit={(e) => e.preventDefault}>
-         <Link to="/homepage"><img className="m-[30px]" src="./public/picture/Logo.png" alt="Chill-logo" /></Link>
-         <h2 className="text-4xl font-semibold">Masuk</h2>
-         <p className="text-lg mb-[20px]">Selamat datang kembali!</p>
+        <form className="flex flex-col items-center h-auto bg-backColor w-auto justify-center p-[20px]  rounded-[10px]" onSubmit={(e) => e.preventDefault}>
+         <Link to="/homepage"><img className="lg:m-[30px] m-[10px]" src="./public/picture/Logo.png" alt="Chill-logo" /></Link>
+         <h2 className="lg:text-4xl text-2xl font-semibold">Masuk</h2>
+         <p className="text-lg lg:mb-[20px]">Selamat datang kembali!</p>
          <InputForm id="username" label="Username" type="text" placeholder="Masukan username"/>
          <InputForm id="sandi" label="Kata Sandi" type="password" placeholder="Masukan Kata sandi"/>
          <div className="w-full flex flex-row justify-between mb-[20px]"><p className="[ text-white/50 ]">Sudah punya akun? <Link className="text-white no-underline" to="/">Daftar</Link></p><p className="cursor-pointer">Lupa kata sandi?</p></div> {/* benerin juga ini gunain link */}
