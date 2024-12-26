@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "register-back": "url('./public/picture/registerbackground.jpg')",
+        "register-back": "url('./picture/registerbackground.jpg')",
         "login-back": "url('./picture/loginbackground.jpg')",
         'home-gradient': 'linear-gradient(180deg, rgba(30, 30, 30, 0), rgb(30, 30, 30))'
       },
