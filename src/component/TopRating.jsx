@@ -1,0 +1,18 @@
+import { ImgList } from "./ImgList"
+
+export const TopRating = () => {
+    return <section className="p-[20px] flex items-start lg:items-center justify-center bg-home-color flex-col w-full" id="series">
+    <div>
+        <h2 className="lg:text-[30px] text-[20px]">Top Rating Film dan Series Hari ini</h2>
+        <div className=" flex lg:gap-[35px] gap-[20px] mt-[20px] w-full justify-start">
+        <ImgList horiz={true} src="./public/picture/series/avatar.png"/>
+        <ImgList horiz={true} src="./public/picture/series/bluelock.png"/>
+        <ImgList horiz={true} src="./public/picture/series/fast.png"/>
+        <ImgList horiz={true} src="./public/picture/series/korea.png"/>
+        <ImgList horiz={true} src="./public/picture/series/shazsam.png"/>
+        <ImgList horiz={true} src="./public/picture/series/bnh.png"/>
+        </div>
+    </div>
+</section>
+
+}
