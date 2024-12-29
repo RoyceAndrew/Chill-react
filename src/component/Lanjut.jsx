@@ -1,18 +1,17 @@
 import { ImgList } from "./ImgList"
-import 'overlayscrollbars/overlayscrollbars.css';
+import { dataHoriz } from "../data/datahoriz"
 
 export const Lanjut = () => {
 
-    return <section className="p-5 relative z-10 flex items-start justify-center w-full flex-col bg-home-color">
+    return <section className="p-[20px] flex items-start  lg:items-center  justify-center bg-home-color flex-col w-full" id="series">
     <div>
-    <h2 className="lg:text-[30px] text-[20px] relative z-10">Melanjutkan Tonton Film</h2>
-    <div id="scroll" className=" mt-5 gap-5 flex relative  w-full  justify-start">
-    <ImgList horiz={false} src="./picture/batman.png"/>
-    <ImgList horiz={false} src="./picture/bluelock.png"/>
-    <ImgList horiz={false} src="./picture/midfilm.png"/>
-    <ImgList horiz={false} src="./picture/otto.png"/>
+        <h2 className="lg:text-[30px] text-[20px]">Melanjutkan Tonton Film</h2>
+        <div className=" flex lg:gap-[20px] gap-[20px] mt-[20px] w-full justify-start">
+        {dataHoriz.map((d) => {
+           return <ImgList horiz={true} key={d.id} src={d.img} g1={d.genre[0]} g2={d.genre[1]} g3={d.genre[2]} age={d.age}  episode={d.episode} imghoriz={d.imghoriz} />
+        })}
+        </div>
     </div>
-</div>
 </section>
 
 }

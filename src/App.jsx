@@ -1,18 +1,24 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import { Register } from "./page/Register"
 import { Login } from "./page/Login"
 import { Homepage } from "./page/Homepage"
+import { Profile } from "./page/Profile"
+import { useContext, useEffect } from "react"
+import { UserContext } from "./context/UserContext"
 
 function App() {
- 
+  const [logedin,] = useContext(UserContext)
 
+  
+  
   return (
     <>
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Register/>} />
+        <Route path="/register" element={<Register/>} />
         <Route path="/login" element={<Login/>} />
-        <Route path="/homepage" element={<Homepage/>} />
+        <Route path="/" element={logedin ? <Homepage/> : <Navigate to="/login"/>} />
+        <Route path="/profile" element={logedin ? <Profile/> : <Navigate to="/login"/>} />
       </Routes>
       </BrowserRouter>
     </>

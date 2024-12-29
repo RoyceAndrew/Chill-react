@@ -1,16 +1,46 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { InputForm } from "../component/InputForm";
+import { useState } from "react";
+import { toast } from "react-toastify"
+import { ErrorNotif } from "../component/ErrorNotif";
+import validator from "validator"
 
 export const Register = () => {
+    const navigate = useNavigate()
+    const [password, setPassword] = useState("")
+    const [conpass, setConPassword] = useState("")
+    const [username, setUsername] = useState("")
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        if (username.length < 5) {
+            toast.error("Username harus memiliki 5 karakter")
+            throw error("Username harus memiliki 5 karakter")
+        }
+
+        if (!validator.isStrongPassword(password)) {
+            toast.error("Kata sandi harus memiliki minimal 8 karakter, termasuk 1 huruf kecil, 1 huruf besar, 1 angka, dan 1 simbol.")
+            throw Error("Kata sandi tidak memenuhi kriteria")
+        }
+
+        if (conpass !== password) {
+             toast.error("Konfirmasi kata sandi salah")
+             throw Error("Konfirmasi kata sandi salah")
+        } 
+        localStorage.setItem("akun", JSON.stringify({username: username, password: password}));
+        navigate("/login")
+    }
+
     return <section id="register" className="bg-[url('/picture/registerbackground.jpg');] h-screen w-screen bg-cover bg-no-repeat bg-center flex justify-center items-center">
-        <form className="flex flex-col items-center h-auto bg-backColor w-auto justify-center p-[20px] rounded-[10px]" onSubmit={(e) => e.preventDefault}>
-        <Link to="/homepage"><img className="lg:m-[30px] m-[10px] h-8" src="./picture/Logo.png" alt="Chill-logo" /></Link> 
+        <ErrorNotif/>
+        <form onSubmit={handleSubmit} className="flex flex-col items-center h-auto bg-backColor w-auto justify-center p-[20px] rounded-[10px]">
+        <img className="lg:m-[30px] m-[10px] h-8" src="./picture/Logo.png" alt="Chill-logo" /> 
          <h2 className="lg:text-4xl text-2xl font-semibold">Daftar</h2>
          <p className="text-lg lg:mb-[20px] mb-[10px]">Selamat datang!</p>
-         <InputForm id="username" label="Username" type="text" placeholder="Masukan username"/>
-         <InputForm id="sandi" label="Kata Sandi" type="password" placeholder="Masukan Kata sandi"/>
-         <InputForm id="sandi" label="Konfirmasi Kata Sandi" type="password" placeholder="Masukan Kata sandi"/>
-         <div className="w-full flex flex-row justify-between mb-[20px]"><p className="[ text-white/50 ]">Sudah punya akun? <Link className="text-white no-underline" to="/login">Masuk</Link></p><p className="cursor-pointer">Lupa kata sandi?</p></div> {/* benerin juga ini gunain link */}
+         <InputForm id="username" value={username} onChange={(e) => {setUsername(e.target.value)}} label="Username" type="text" placeholder="Masukan username"/>
+         <InputForm id="sandi" value={password} onChange={(e) => {setPassword(e.target.value)}} label="Kata Sandi" type="password" placeholder="Masukan Kata sandi"/>
+         <InputForm id="consandi" value={conpass} onChange={(e) => {setConPassword(e.target.value)}} label="Konfirmasi Kata Sandi" type="password" placeholder="Masukan Kata sandi"/>
+         <div className="w-full flex flex-row justify-between mb-[20px]"><p className="[ text-white/50 ]">Sudah punya akun? <Link className="text-white no-underline" to="/login">Masuk</Link></p><p className="cursor-pointer">Lupa kata sandi?</p></div>
             <button type="submit" className="w-full border-white/40 border-solid border-[1px] bg-[rgb(50,50,50)] h-[50px] cursor-pointer rounded-[25px] font-[16px] lg:mt-[20px] transition-all duration-300 ease-out hover:bg-[rgb(40,40,40)]">Daftar</button>
             <p className="my-[5px]">Atau</p>
             <button className="w-full h-12 flex items-center justify-center text-base cursor-pointer rounded-[25px] bg-backColor border-[1px] border-solid border-[#FFFFFF40] gap-[10px] transition ease-out duration-300 hover:bg-[rgb(40,40,40)]"><img className="h-[20px]" src="./picture/search.png"/>Daftar dengan Google</button>
