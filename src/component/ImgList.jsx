@@ -14,7 +14,7 @@ export const ImgList = (props) => {
             }
         }
         
-        
+        check()
 
         window.addEventListener("resize", check)
 
