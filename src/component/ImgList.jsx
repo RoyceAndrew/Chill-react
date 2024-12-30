@@ -6,7 +6,7 @@ export const ImgList = (props) => {
 
     useEffect(() => {
         const check = () => {
-            if (window.innerWidth < 900) {
+            if (window.innerWidth < 1536) {
                 setAllow(false)
                 setDetail(false)
             } else {
