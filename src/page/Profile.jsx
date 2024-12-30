@@ -16,46 +16,53 @@ export const Profile = () => {
     const [resetEdit, setResetEdit] = useState(false);
 
     function getName(input) {
-       setName(input)
-    }
+      setName(input)
+  }
 
-    function getPass(input) {
+  function getPass(input) {
       setPass(input)
-    }
+  }
 
-    function handleSubmit(e) {
+  function handleSubmit(e) {
       e.preventDefault()
-      
 
       const data = JSON.parse(localStorage.getItem("akun"))
+      const check = JSON.parse(localStorage.getItem("users"))
 
       const updatedData = {
-        username: name || data.username,
-        password: pass || data.password, 
-      };
+          username: name || data.username,
+          password: pass || data.password,
+      }
 
       if (!validator.isStrongPassword(updatedData.password)) {
-        toast.error("Kata sandi harus memiliki minimal 8 karakter, termasuk 1 huruf kecil, 1 huruf besar, 1 angka, dan 1 simbol.")
-        throw Error("Password not strong enough")
+          toast.error("Kata sandi harus memiliki minimal 8 karakter, termasuk 1 huruf kecil, 1 huruf besar, 1 angka, dan 1 simbol.")
+          return
       }
-      if (updatedData.username < 5) {
-        toast.error("Username harus memiliki 5 karakter")
-        throw error("Username harus memiliki 5 karakter")
+      if (updatedData.username.length < 5) {
+          toast.error("Username harus memiliki 5 karakter")
+          return
       }
-      
+
+      localStorage.setItem("akun", JSON.stringify(updatedData))
+
+      const updatedUsers = check.map(user =>
+          user.username === data.username ? { ...user, ...updatedData } : user
+      )
+      localStorage.setItem("users", JSON.stringify(updatedUsers))
+
       if (name && pass) {
-        toast.success("Username dan Password telah berhasil diganti")
+          toast.success("Username dan Password telah berhasil diganti")
       } else if (name) {
-        toast.success("Username telah berhasil diganti")
+          toast.success("Username telah berhasil diganti")
       } else if (pass) {
-        toast.success("password telah berhasil diganti")
+          toast.success("Password telah berhasil diganti")
       }
-      localStorage.setItem("akun" ,JSON.stringify(updatedData))
+
       setName("")
       setPass("")
-      setResetEdit(true);
-      setTimeout(() => setResetEdit(false), 0);
-    }
+      setResetEdit(true)
+      setTimeout(() => setResetEdit(false), 0)
+  }
 
       return <>
       <Nav/>

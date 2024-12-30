@@ -5,10 +5,15 @@ export const DeleteAcc = () => {
 
     function handleClick() {
     
+    const check = JSON.parse(localStorage.getItem("users"))
     const data = JSON.parse(localStorage.getItem("akun"))
     const verif = prompt(`Apakah anda yakin ingin menghapus akun ? ketik "${data.username}" untuk mengkonfirmasi `)
     if (verif === data.username) {
-        localStorage.clear()
+        localStorage.removeItem("akun")
+        const newData = check.filter((c) => {
+            return c.id !== data.id
+        })
+        localStorage.setItem("users", JSON.stringify(newData))
         navigate("/register")
     } else {
         alert("Permintaan dibatalkan")

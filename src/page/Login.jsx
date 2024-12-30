@@ -13,18 +13,24 @@ export const Login = () => {
 
     function handleSubmit(e) {
        e.preventDefault()
-       const check = JSON.parse(localStorage.getItem("akun"))
-       if (check.username === username && check.password === password) {
-        setLog(true)
-         navigate("/")
-       } else if ( check.username !== username ) {
-        toast.error("User not found")
-        throw Error("User not found")
-       } else if ( check.password !== password ) {
-        toast.error("Password incorrect")
-        throw Error("Password incorrect");
-        
-       }
+       const check = JSON.parse(localStorage.getItem("users"))
+
+       let user = check.find(user => user.username === username)
+
+       if (!user) {
+        toast.error("User tidak ditemukan")
+        return
+     }
+  
+     if (user.password !== password) {
+        toast.error("Password salah")
+        return
+     }
+
+     localStorage.setItem("akun", JSON.stringify(user))
+     setLog(true)
+   navigate("/")
+   
        
     }
 

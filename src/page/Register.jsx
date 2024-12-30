@@ -15,19 +15,32 @@ export const Register = () => {
         e.preventDefault();
         if (username.length < 5) {
             toast.error("Username harus memiliki 5 karakter")
-            throw error("Username harus memiliki 5 karakter")
+            return
         }
 
         if (!validator.isStrongPassword(password)) {
             toast.error("Kata sandi harus memiliki minimal 8 karakter, termasuk 1 huruf kecil, 1 huruf besar, 1 angka, dan 1 simbol.")
-            throw Error("Kata sandi tidak memenuhi kriteria")
+            return
         }
 
         if (conpass !== password) {
              toast.error("Konfirmasi kata sandi salah")
-             throw Error("Konfirmasi kata sandi salah")
+             return
         } 
-        localStorage.setItem("akun", JSON.stringify({username: username, password: password}));
+        let users = JSON.parse(localStorage.getItem('users')) || []; 
+  
+        const userExists = users.some(user => user.username === username);
+
+        if (userExists) {
+            toast.error('Username sudah terdaftar!');
+            return; 
+        }
+  
+
+  const newUser = { id: Date.now(), username, password };
+  users.push(newUser);
+
+  localStorage.setItem('users', JSON.stringify(users));
         navigate("/login")
     }
 
