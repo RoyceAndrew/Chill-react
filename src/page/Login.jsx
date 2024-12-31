@@ -4,6 +4,8 @@ import { useState, useContext } from "react";
 import { toast } from "react-toastify"
 import { ErrorNotif } from "../component/ErrorNotif";
 import { UserContext } from "../context/UserContext";
+import axios from "axios";
+import { getData } from "../service/api/api";
 
 export const Login = () => {
     const navigate = useNavigate()
@@ -11,11 +13,13 @@ export const Login = () => {
     const [username, setUsername] = useState("")
     const [, setLog] = useContext(UserContext)
 
-    function handleSubmit(e) {
+    const handleSubmit = async (e) => {
        e.preventDefault()
-       const check = JSON.parse(localStorage.getItem("users"))
+       try {
+        const res = await getData();
+        const data = res.data;
 
-       let user = check.find(user => user.username === username)
+       let user = data.find(user => user.username === username)
 
        if (!user) {
         toast.error("User tidak ditemukan")
@@ -30,9 +34,11 @@ export const Login = () => {
      localStorage.setItem("akun", JSON.stringify(user))
      setLog(true)
    navigate("/")
-   
-       
+    } catch (err) {
+     console.log(err)
+     toast.error("Terjadi kesalahan saat login.")
     }
+}
 
     return <section id="register" className="bg-[url('/picture/loginbackground.jpg');] h-screen w-screen bg-cover bg-no-repeat bg-center flex justify-center items-center">
         <ErrorNotif/>
