@@ -4,6 +4,8 @@ import { useState } from "react";
 import { toast } from "react-toastify"
 import { ErrorNotif } from "../component/ErrorNotif";
 import validator from "validator"
+import axios from "axios";
+import { getData, postData } from "../service/api/api";
 
 export const Register = () => {
     const navigate = useNavigate()
@@ -11,38 +13,49 @@ export const Register = () => {
     const [conpass, setConPassword] = useState("")
     const [username, setUsername] = useState("")
 
-    function handleSubmit(e) {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
         if (username.length < 5) {
-            toast.error("Username harus memiliki 5 karakter")
-            return
+          toast.error("Username harus memiliki 5 karakter");
+          return;
         }
-
+    
         if (!validator.isStrongPassword(password)) {
-            toast.error("Kata sandi harus memiliki minimal 8 karakter, termasuk 1 huruf kecil, 1 huruf besar, 1 angka, dan 1 simbol.")
-            return
+          toast.error(
+            "Kata sandi harus memiliki minimal 8 karakter, termasuk 1 huruf kecil, 1 huruf besar, 1 angka, dan 1 simbol."
+          );
+          return;
         }
-
+    
         if (conpass !== password) {
-             toast.error("Konfirmasi kata sandi salah")
-             return
-        } 
-        let users = JSON.parse(localStorage.getItem('users')) || []; 
-  
-        const userExists = users.some(user => user.username === username);
-
-        if (userExists) {
-            toast.error('Username sudah terdaftar!');
-            return; 
+          toast.error("Konfirmasi kata sandi salah");
+          return;
         }
-  
+    
+        try {
+          const res = await getData();
+          const data = res.data;
+          console.log(res);
+          const userExists = data.find((user) => user.username === username);
+    
+          if (userExists) {
+            toast.error("Username sudah terdaftar!");
+            return;
+          }
 
-  const newUser = { id: Date.now(), username, password };
-  users.push(newUser);
-
-  localStorage.setItem('users', JSON.stringify(users));
-        navigate("/login")
-    }
+          await postData({
+            username: username,
+            password: password,
+          });
+    
+          toast.success("Pendaftaran berhasil!");
+          navigate("/login");
+        } catch (err) {
+          console.error(err);
+          toast.error("Terjadi kesalahan saat mendaftar.");
+        }
+      };
 
     return <section id="register" className="bg-[url('/picture/registerbackground.jpg');] h-screen w-screen bg-cover bg-no-repeat bg-center flex justify-center items-center">
         <ErrorNotif/>

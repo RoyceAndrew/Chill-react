@@ -3,7 +3,7 @@ import { Register } from "./page/Register"
 import { Login } from "./page/Login"
 import { Homepage } from "./page/Homepage"
 import { Profile } from "./page/Profile"
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import { UserContext } from "./context/UserContext"
 
 function App() {

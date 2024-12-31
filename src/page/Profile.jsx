@@ -7,6 +7,8 @@ import validator from "validator";
 import { toast } from "react-toastify"
 import { ErrorNotif } from "../component/ErrorNotif"
 import { DeleteAcc } from "../component/DeleteAcc"
+import axios from "axios"
+import { upData } from "../service/api/api"
 
 export const Profile = () => {
     const {fixed} = useContext(ScrollContext)
@@ -23,15 +25,19 @@ export const Profile = () => {
       setPass(input)
   }
 
-  function handleSubmit(e) {
+  const handleSubmit = async (e) => {
       e.preventDefault()
-
+     try {
       const data = JSON.parse(localStorage.getItem("akun"))
-      const check = JSON.parse(localStorage.getItem("users"))
 
-      const updatedData = {
+      if (!data) { 
+        return 
+      }
+
+      const updatedData = { 
           username: name || data.username,
           password: pass || data.password,
+          id: data.id
       }
 
       if (!validator.isStrongPassword(updatedData.password)) {
@@ -42,13 +48,10 @@ export const Profile = () => {
           toast.error("Username harus memiliki 5 karakter")
           return
       }
-
+    
       localStorage.setItem("akun", JSON.stringify(updatedData))
-
-      const updatedUsers = check.map(user =>
-          user.username === data.username ? { ...user, ...updatedData } : user
-      )
-      localStorage.setItem("users", JSON.stringify(updatedUsers))
+      await upData(updatedData.id, updatedData)
+     
 
       if (name && pass) {
           toast.success("Username dan Password telah berhasil diganti")
@@ -61,7 +64,11 @@ export const Profile = () => {
       setName("")
       setPass("")
       setResetEdit(true)
-      setTimeout(() => setResetEdit(false), 0)
+      setTimeout(() => setResetEdit(false), 100)
+    } catch(err) {
+      console.log(err) 
+      toast.error("Terjadi kesalahan saat mengubah data")
+    }
   }
 
       return <>
