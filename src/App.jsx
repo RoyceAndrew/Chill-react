@@ -8,8 +8,6 @@ import { UserContext } from "./context/UserContext"
 
 function App() {
   const [logedin,] = useContext(UserContext)
-
-  
   
   return (
     <>
