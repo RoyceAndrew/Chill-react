@@ -4,7 +4,7 @@ import { FooterGenre } from "./FooterGenre"
 export const Footer = () => {
     return <footer className="flex items-start flex-col p-[20px] lg:flex-row border-t border-t-white/50">
     <div id="copyright" className="mb-[30px]" >
-     <img src="./picture/Logo.png" alt="chill-logo"/>
+     <img src="./picture/Logo.png" alt="chill-logo" />
      <p>©2024 Chill All Rights Reserved.</p>
     </div>
     

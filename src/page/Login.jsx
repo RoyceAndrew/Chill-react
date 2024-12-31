@@ -4,7 +4,6 @@ import { useState, useContext } from "react";
 import { toast } from "react-toastify"
 import { ErrorNotif } from "../component/ErrorNotif";
 import { UserContext } from "../context/UserContext";
-import axios from "axios";
 import { getData } from "../service/api/api";
 
 export const Login = () => {
