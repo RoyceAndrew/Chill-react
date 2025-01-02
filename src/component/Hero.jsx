@@ -5,7 +5,7 @@ import clamp from 'clamp-js';
 
 export const Hero = () => {
     const {fixed} = useContext(ScrollContext)
-    const [mute, setMute] = useState(true)
+    const [mute, setMute] = useState(false)
 
     useEffect(() => {
         const element = document.getElementById("desc");
@@ -15,10 +15,8 @@ export const Hero = () => {
 
     const handleClick = () => {
         if (mute) {
-            
             setMute(false)
         } else if (!mute) {
-            
             setMute(true)
         }
     }   
