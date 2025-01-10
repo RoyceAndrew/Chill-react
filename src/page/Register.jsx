@@ -4,7 +4,6 @@ import { useState } from "react";
 import { toast } from "react-toastify"
 import { ErrorNotif } from "../component/ErrorNotif";
 import validator from "validator"
-import axios from "axios";
 import { getData, postData } from "../service/api/api";
 
 export const Register = () => {
@@ -47,6 +46,7 @@ export const Register = () => {
           await postData({
             username: username,
             password: password,
+            watchlater: [],
           });
     
           toast.success("Pendaftaran berhasil!");

@@ -1,11 +1,14 @@
+import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
-
+import { deleteUser } from "../store/redux/counterUser"
 
 export const Logout = () => {
    const navigate = useNavigate()
+   const dispatch = useDispatch()
 
    function handleClick() {
     localStorage.clear()
+    dispatch(deleteUser())
     navigate("/register")
    }
 

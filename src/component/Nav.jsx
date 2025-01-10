@@ -12,7 +12,7 @@ export const Nav = () => {
     <Link className="transition-all lg:ml-10  ease-out hover:scale-110" to="/"><img className="h-[18px] lg:h-[24px]" src='./picture/Logo.png' alt='chill-logo'/></Link>
     <NavLink title="Series" to="" />
     <NavLink title="Film" to="" />
-    <NavLink title="Daftar saya" to="" />
+    <NavLink title="Daftar saya" to="/watchlist" />
     </div>
     <ProfileNav visible={visible}/>
     
