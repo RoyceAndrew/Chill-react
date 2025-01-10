@@ -11,8 +11,12 @@
 
 
 
-html {
+body {
     overflow-x: hidden;
+}
+
+html {
+    
     height: 100vh;
     background-color: rgb(30, 30, 30);
 }

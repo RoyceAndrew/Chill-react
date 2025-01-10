@@ -1,16 +1,15 @@
 import { useNavigate } from "react-router-dom"
 import { delData } from "../service/api/api"
+import { useSelector } from "react-redux"
 
 export const DeleteAcc = () => {
     const navigate = useNavigate()
-
+    const data = useSelector((state) => state.counterUser);
     const handleClick = async () =>  {
     
     try {
-    const data = JSON.parse(localStorage.getItem("akun"))
     const verif = prompt(`Apakah anda yakin ingin menghapus akun ? ketik "${data.username}" untuk mengkonfirmasi `)
     if (verif === data.username) {
-        localStorage.removeItem("akun")
         await delData(data.id)
         navigate("/register")
     } else {
