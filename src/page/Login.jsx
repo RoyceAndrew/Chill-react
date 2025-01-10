@@ -1,17 +1,17 @@
 import { Link, useNavigate } from "react-router-dom";
 import { InputForm } from "../component/InputForm";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify"
 import { ErrorNotif } from "../component/ErrorNotif";
-import { UserContext } from "../context/UserContext";
-import axios from "axios";
+
 import { getData } from "../service/api/api";
+import { upData } from "../service/api/api";
 
 export const Login = () => {
     const navigate = useNavigate()
     const [password, setPassword] = useState("")
     const [username, setUsername] = useState("")
-    const [, setLog] = useContext(UserContext)
+    
 
     const handleSubmit = async (e) => {
        e.preventDefault()
@@ -31,8 +31,8 @@ export const Login = () => {
         return
      }
 
-     localStorage.setItem("akun", JSON.stringify(user))
-     setLog(true)
+     upData(user.id, user)
+     
    navigate("/")
     } catch (err) {
      console.log(err)

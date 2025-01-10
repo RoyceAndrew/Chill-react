@@ -7,16 +7,18 @@ import validator from "validator";
 import { toast } from "react-toastify"
 import { ErrorNotif } from "../component/ErrorNotif"
 import { DeleteAcc } from "../component/DeleteAcc"
-import axios from "axios"
 import { upData } from "../service/api/api"
+import { useSelector } from "react-redux"
 
 export const Profile = () => {
     const {fixed} = useContext(ScrollContext)
-    const { username, password } = JSON.parse(localStorage.getItem("akun"));
+    const user = useSelector(state => state.counterUser);
     const [ name, setName ] = useState("")
     const [ pass, setPass ] = useState("")
     const [resetEdit, setResetEdit] = useState(false);
 
+
+    
     function getName(input) {
       setName(input)
   }
@@ -28,7 +30,7 @@ export const Profile = () => {
   const handleSubmit = async (e) => {
       e.preventDefault()
      try {
-      const data = JSON.parse(localStorage.getItem("akun"))
+      const data = user
 
       if (!data) { 
         return 
@@ -49,8 +51,8 @@ export const Profile = () => {
           return
       }
     
-      localStorage.setItem("akun", JSON.stringify(updatedData))
       await upData(updatedData.id, updatedData)
+      
      
 
       if (name && pass) {
@@ -82,8 +84,8 @@ export const Profile = () => {
           <div>
           <img className="h-[100px] w-[100px] object-cover rounded-full mt-7" id="profile-pct" src="./picture/profilepct.jpg" alt="profile-pct"/>
           </div>
-        <ProfileInput label="Nama Pengguna" value={username} type="text" getvalue={getName} reset={resetEdit}/>
-        <ProfileInput label="Kata Sandi" value={password} type="password" getvalue={getPass} reset={resetEdit}/>
+        <ProfileInput label="Nama Pengguna" value={user.username || ""} type="text" getvalue={getName} reset={resetEdit}/>
+        <ProfileInput label="Kata Sandi" value={user.password || ""} type="password" getvalue={getPass} reset={resetEdit}/>
         <div>
         <button className="bg-blue-900 px-5 py-2 rounded-3xl hover:bg-blue-950 transition-all duration-200" type="submit">Simpan</button>
         <DeleteAcc/>
