@@ -1,14 +1,11 @@
-import { useSelector, useDispatch } from "react-redux";
-import { addWatch, removeWatch } from "../store/redux/counterWatch";
+import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { ImgList } from "./ImgList";
 import { postWatch } from "../service/api/api";
 import Slider from "react-slick";
-import { use } from "react";
+
 
 export const ImgDetail = ({ movies, loading, api }) => {
-    const watchLater = useSelector((state) => state.counterWatch);
-    const dispatch = useDispatch();
     const user = useSelector((state) => state.counterUser);
     const [index, setIndex] = useState(0)
     const [year, setYear] = useState(0)
