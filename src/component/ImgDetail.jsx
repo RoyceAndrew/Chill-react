@@ -38,8 +38,26 @@ export const ImgDetail = ({ movies, loading, api }) => {
         {
           breakpoint: 800,
           settings: {
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            arrows: false,
+            
+          },
+        },
+        {
+          breakpoint: 500,
+          settings: {
             slidesToShow: 6,
             slidesToScroll: 2,
+            arrows: false,
+            
+          },
+        },
+        {
+          breakpoint: 1025,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 4,
             arrows: false,
             
           },
@@ -65,7 +83,7 @@ export const ImgDetail = ({ movies, loading, api }) => {
             borderRadius: "50%",
             position: "absolute", 
             top: "50%",          
-            right: "25px",        
+            right: "-10px",        
             transform: "translateY(-50%)", 
             zIndex: 10,           
           }}
@@ -186,7 +204,7 @@ export const ImgDetail = ({ movies, loading, api }) => {
   
     return (
       <>
-        <div className="flex lg:gap-[20px] gap-[20px] mt-[20px] w-[900px] m-w-[1000px] xl:w-[90vw] justify-start slider-container">
+        <div className="flex lg:gap-[20px] gap-[20px] mt-[20px] w-[55em] sm:justify-center sm:w-[80vw] 2xl:w-[90vw] max-w-[95em] justify-start slider-container">
           <Slider {...settings} className="w-full">
             {loading ? (
               <p>Loading...</p>
@@ -225,7 +243,7 @@ export const ImgDetail = ({ movies, loading, api }) => {
             ) : (
               <>
               <i onClick={handleClose} class="bi bi-x-lg hover:bg-red-600 transition-all ease-out duration-300 absolute cursor-pointer z-50 border border-white w-[30px] h-[30px] lg:w-[40px] lg:h-[40px] flex items-center justify-center lg:text-xl bg-[var(--back-color)] rounded-[50%] bg-home-color lg:top-[120px] top-[105px] right-[11%]"></i>
-                {trailer ? <iframe className="w-[80vw] h-[80vh] rounded-t-xl z-10 border-hidden object-cover" src={`https://www.youtube.com/embed/${trailer}?autoplay=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=${trailer}&mute=${mute ? "1" : "0"}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe> : <img
+                {trailer ? <iframe className="w-[80vw] h-[250px] md:h-[450px] 2xl:h-[80vh]  rounded-t-xl z-10 border-hidden object-cover" src={`https://www.youtube.com/embed/${trailer}?autoplay=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=${trailer}&mute=${mute ? "1" : "0"}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe> : <img
                   className="w-[80vw] rounded-t-xl z-10 object-cover"
                   src={
                     "https://image.tmdb.org/t/p/w500/" +
@@ -233,7 +251,7 @@ export const ImgDetail = ({ movies, loading, api }) => {
                   }
                 />}
   
-                <div className="z-20 relative p-3 lg:px-20 lg:py-10 bg-home-gradient flex justify-end flex-col w-[80vw] n h-[80vh] mt-[-80vh]">
+                <div className="z-20 relative p-3 lg:px-20 lg:py-10 bg-home-gradient flex justify-end flex-col w-[80vw]  h-[250px] md:h-[450px]  md:mt-[-450px] 2xl:h-[80vh] 2xl:mt-[-80vh] mt-[-250px]">
                   <h2 className="lg:text-[40px] text-[20px] mb-2 lg:mb-5 text-white font-bold">
                     {movies[index].name}
                   </h2>

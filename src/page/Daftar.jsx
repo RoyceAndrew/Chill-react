@@ -97,7 +97,7 @@ export const Daftar = () => {
     <div>
       <Nav />
       <section
-        className={`min-h-[100vh] flex justify-start flex-col items-center transition-all ease-out duration-500 ${fixed ? "mt-0" : "mt-[80px]"}`}
+        className={`min-h-[100vh] flex justify-start flex-col items-center transition-all ease-out duration-500 ${fixed ? "mt-0" : "mt-[94px]"}`}
       >
         <div className="w-[80vw] mt-10">
           <h1 className="text-[30px] mb-5">Daftar Saya</h1>
@@ -126,7 +126,7 @@ export const Daftar = () => {
               <div onClick={(e) => e.stopPropagation()}>
                 <i
                   onClick={handleClose}
-                  className="bi bi-x-lg hover:bg-red-600 transition-all ease-out duration-300 absolute cursor-pointer z-50 border border-white w-[30px] h-[30px] lg:w-[40px] lg:h-[40px] flex items-center justify-center lg:text-xl bg-[var(--back-color)] rounded-[50%] bg-home-color lg:top-[120px] top-[105px] right-[11%]"
+                  className="bi bi-x-lg hover:bg-red-600 transition-all ease-out duration-300 absolute cursor-pointer z-50 border border-white w-[30px] h-[30px] md:w-[40px] md:h-[40px] flex items-center justify-center md:text-xl bg-[var(--back-color)] rounded-[50%] bg-home-color md:top-[120px] top-[105px] right-[11%]"
                 ></i>
                 {trailer ? (
                   <iframe
@@ -145,32 +145,32 @@ export const Daftar = () => {
                   />
                 )}
 
-                <div className="z-20 relative p-3 lg:px-20 lg:py-10 bg-home-gradient flex justify-end flex-col w-[80vw] n h-[80vh] mt-[-80vh]">
-                  <h2 className="lg:text-[40px] text-[20px] mb-2 lg:mb-5 text-white font-bold">
+                <div className="z-20 relative p-3 md:px-20 md:py-10 bg-home-gradient flex justify-end flex-col w-[80vw] n h-[80vh] mt-[-80vh]">
+                  <h2 className="md:text-[40px] text-[20px] mb-2 md:mb-5 text-white font-bold">
                     {movies[index]?.name || memory?.name}
                   </h2>
                   <div className="flex items-end justify-between">
                     <div>
-                      <button className="bg-blue-700 mr-5 text-[10px] lg:text-[16px] hover:bg-blue-800 border-0 py-2.5 px-4 lg:px-5 rounded-full cursor-pointer transition-all duration-300 ease-out">
+                      <button className="bg-blue-700 mr-5 text-[10px] md:text-[16px] hover:bg-blue-800 border-0 py-2.5 px-4 md:px-5 rounded-full cursor-pointer transition-all duration-300 ease-out">
                         Mulai
                       </button>
                       <button
                         onClick={handleClick}
                         onMouseOver={handleOver}
                         onMouseOut={handleOut}
-                        className={`ring-1 ring-white w-[30px] h-[30px] lg:w-[40px] transition-all ease-out duration-300 lg:h-[40px] ${added ? "hover:bg-red-600" : "hover:bg-green-600"} rounded-full`}
+                        className={`ring-1 ring-white w-[30px] h-[30px] md:w-[40px] transition-all ease-out duration-300 md:h-[40px] ${added ? "hover:bg-red-600" : "hover:bg-green-600"} rounded-full`}
                       >
-                        <i className={`bi lg:text-xl added ${added ? "bi-check2" : "bi-plus-lg"}`}></i>
+                        <i className={`bi md:text-xl added ${added ? "bi-check2" : "bi-plus-lg"}`}></i>
                       </button>
                     </div>
                     <i
                       onClick={() => setMute(!mute)}
-                      className={`bi ${mute ? "bi-volume-mute" : "bi-volume-up"} cursor-pointer border border-white w-[30px] h-[30px] lg:w-[40px] lg:h-[40px] flex items-center justify-center lg:text-xl bg-[var(--back-color)] rounded-[50%]`}
+                      className={`bi ${mute ? "bi-volume-mute" : "bi-volume-up"} cursor-pointer border border-white w-[30px] h-[30px] md:w-[40px] md:h-[40px] flex items-center justify-center md:text-xl bg-[var(--back-color)] rounded-[50%]`}
                     ></i>
                   </div>
                 </div>
                 
-                  <div className="rounded-b-xl w-[80vw] bg-home-color lg:px-20 lg:py-10 p-3 ">
+                  <div className="rounded-b-xl w-[80vw] bg-home-color md:px-20 md:py-10 p-3 ">
                     <div className="flex gap-5 items-center">
                     <p className="text-slate-300">{year}</p>
                     <p className="text-slate-300 rounded-full ring-1 ring-slate-300 px-2 py-2">

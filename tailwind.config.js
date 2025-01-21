@@ -13,7 +13,7 @@ export default {
       },
       colors: {
         "backColor": "rgb(20, 20, 20, 0.7)",
-        "home-color": "rgb(30, 30, 30)"
+        "home-color": "#181A1C"
       },
       transitionProperty: {
         'nav': 'height, top',

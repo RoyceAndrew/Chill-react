@@ -28,11 +28,22 @@ export const Lanjut = () => {
           {
             breakpoint: 1000,
             settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              arrows: false,
+              centerPadding: "10px"
+            },
+            
+          },
+          {
+            breakpoint: 768,
+            settings: {
               slidesToShow: 4,
-              slidesToScroll: 4,
+              slidesToScroll: 1,
               arrows: false,
               
             },
+            
           },
         ],
       };
@@ -55,7 +66,7 @@ export const Lanjut = () => {
               borderRadius: "50%",
               position: "absolute", 
               top: "50%",          
-              right: "25px",        
+              right: "-10px",        
               transform: "translateY(-50%)", 
               zIndex: 10,           
             }}
@@ -92,10 +103,10 @@ export const Lanjut = () => {
       }
   
 
-    return <section className="p-[20px] flex items-start  lg:items-center  justify-center bg-home-color flex-col w-full" id="series">
+    return <section className="p-[20px] flex items-start  sm:items-center  justify-center bg-home-color flex-col w-full" id="series">
     <div>
         <h2 className="lg:text-[30px] text-[20px]">Melanjutkan Tonton Film</h2>
-        <div className=" flex lg:gap-[20px] gap-[20px] mt-[20px] w-[900px] m-w-[1000px] xl:w-[90vw] justify-start slider-container">
+        <div className=" flex lg:gap-[20px] gap-[20px] mt-[20px] w-[55em]  md:w-[80vw] 2xl:w-[90vw] max-w-[95em] justify-start slider-container">
         <Slider {...settings} className="w-full">
          {dataHoriz.map((d) => {
            return <ImgList horiz={true} key={d.id} src={d.img} g1={d.genre[0]} g2={d.genre[1]} g3={d.genre[2]} age={d.age}  episode={d.episode} imghoriz={d.imghoriz} />
