@@ -9,7 +9,11 @@
     color: white;
 }
 
-
+.londrina {
+        font-family: "Londrina Solid", serif;
+        font-weight: 400;
+        font-style: normal;
+}
 
 body {
     overflow-x: hidden;
@@ -18,14 +22,14 @@ body {
 html {
     
     height: 100vh;
-    background-color: rgb(30, 30, 30);
+    background-color: #181A1C;
 }
 
 main {
     min-height: calc(100vh - 370px);
   }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
 
 footer {
     background-color: rgb(30, 30, 30);
