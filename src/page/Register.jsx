@@ -45,18 +45,18 @@ export const Register = () => {
     }
 
     return <section id="register" className="bg-[url('/picture/registerbackground.jpg');] h-screen w-screen bg-cover bg-no-repeat bg-center flex justify-center items-center">
-        <ErrorNotif/>
-        <form onSubmit={handleSubmit} className="flex flex-col items-center h-auto bg-backColor w-auto justify-center p-[20px] rounded-[10px]">
-        <img className="lg:m-[30px] m-[10px] h-8" src="./picture/Logo.png" alt="Chill-logo" /> 
-         <h2 className="lg:text-4xl text-2xl font-semibold">Daftar</h2>
-         <p className="text-lg lg:mb-[20px] mb-[10px]">Selamat datang!</p>
-         <InputForm id="username" value={username} onChange={(e) => {setUsername(e.target.value)}} label="Username" type="text" placeholder="Masukan username"/>
-         <InputForm id="sandi" value={password} onChange={(e) => {setPassword(e.target.value)}} label="Kata Sandi" type="password" placeholder="Masukan Kata sandi"/>
-         <InputForm id="consandi" value={conpass} onChange={(e) => {setConPassword(e.target.value)}} label="Konfirmasi Kata Sandi" type="password" placeholder="Masukan Kata sandi"/>
-         <div className="w-full flex flex-row justify-between mb-[20px]"><p className="[ text-white/50 ]">Sudah punya akun? <Link className="text-white no-underline" to="/login">Masuk</Link></p><p className="cursor-pointer">Lupa kata sandi?</p></div>
-            <button type="submit" className="w-full border-white/40 border-solid border-[1px] bg-[rgb(50,50,50)] h-[50px] cursor-pointer rounded-[25px] font-[16px] lg:mt-[20px] transition-all duration-300 ease-out hover:bg-[rgb(40,40,40)]">Daftar</button>
-            <p className="my-[5px]">Atau</p>
-            <button className="w-full h-12 flex items-center justify-center text-base cursor-pointer rounded-[25px] bg-backColor border-[1px] border-solid border-[#FFFFFF40] gap-[10px] transition ease-out duration-300 hover:bg-[rgb(40,40,40)]"><img className="h-[20px]" src="./picture/search.png"/>Daftar dengan Google</button>
-        </form>
-    </section>
+    <ErrorNotif/>
+    <form onSubmit={handleSubmit} className="flex flex-col items-center h-auto  bg-[#181A1C]/[84%] w-[306px] md:w-[529px] justify-center md:p-[40px] p-[24px] rounded-[10px]">
+    <img className=" md:h-[44px] h-[24px] md:mb-[37px] mb-[20px]" src="./picture/Logo.png" alt="Chill-logo" /> 
+     <h2 className="md:text-[32px] md:mb-[8px] text-[18px mb-[5px] font-semibold">Daftar</h2>
+     <p className="md:text-[16px] text-[10px] md:mb-[37px] mb-[20px]">Selamat datang!</p>
+     <InputForm id="username" value={username} onChange={(e) => {setUsername(e.target.value)}} label="Username" type="text" placeholder="Masukan username"/>
+     <InputForm id="sandi" value={password} onChange={(e) => {setPassword(e.target.value)}} label="Kata Sandi" type="password" placeholder="Masukan Kata sandi"/>
+     <InputForm id="consandi" value={conpass} onChange={(e) => {setConPassword(e.target.value)}} label="Konfirmasi Kata Sandi" type="password" placeholder="Masukan Kata sandi"/>
+     <div className="w-full flex flex-row justify-between md:mt-[-25px] mt-[-13px] text-[10px] md:text-base mb-[20px] md:mb-[37px]"><p className="[ text-white/50 ]">Sudah punya akun? <Link className="text-white no-underline" to="/login">Masuk</Link></p></div>
+     <button type="submit" className="w-full border-[#E7E3FC]/[23%] md:text-base border-solid border-[1px] bg-[#3D4142] md:h-[50px] cursor-pointer rounded-[24px] font-[16px] text-[10px] h-[30px]  transition-all duration-300 ease-out hover:bg-[rgb(40,40,40)]">Daftar</button>
+        <p className="md:my-[8px] md:text-base text-[10px] my-[4px]">Atau</p>
+        <button className="w-full md:h-[50px] h-[27px] text-[10px] flex items-center justify-center md:text-base cursor-pointer rounded-[24px] bg-transparent border-[1px] border-solid border-[#E7E3FC]/[23%] gap-[10px] transition ease-out duration-300 hover:bg-[rgb(40,40,40)]"><img className="h-[10px] md:h-[20px]" src="./picture/search.png"/>Daftar dengan Google</button>
+    </form>
+</section>
 }
