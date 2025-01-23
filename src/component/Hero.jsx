@@ -27,7 +27,7 @@ export const Hero = () => {
         src="./picture/suzumetrailer.mp4"
         loop={true}
         autoPlay={true}
-        // muted={mute}
+        muted={mute}
         alt="hero-img"
     />
     <div className="relative z-30 flex flex-col gap-1 justify-end pt-[350px] pb-[40px] md:gap-5 md:pb-[60px] px-5 h-[600px] mt-[-599px] bg-home-gradient">
