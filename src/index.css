@@ -27,6 +27,7 @@ html {
 
 main {
     min-height: calc(100vh - 370px);
+    overflow-x: hidden;
   }
 
 @media (min-width: 1280px) {
