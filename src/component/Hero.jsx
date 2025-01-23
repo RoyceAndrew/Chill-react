@@ -34,7 +34,7 @@ export const Hero = () => {
         <h1 className="text-[40px]">Suzume</h1>
         <p
             id="desc"
-            className=" h-auto w-1/2  break-words text-[16px]"
+            className=" h-auto md:w-1/2  break-words text-[16px]"
         >
             Suzume No Tojimari berkisah tentang petualangan seorang perempuan bernama Suzume dan lelaki misterius bernama Souta dalam mencegah bencana gempa bumi terjadi di seantero Jepang. Bencana itu terjadi lantaran sebelumnya Suzume tertarik pada kekuatan sebuah pintu lapuk dan membuka kenopnya.
         </p>
