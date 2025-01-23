@@ -8,7 +8,7 @@ import { Footer } from "../component/Footer"
 
 export const Homepage = () => {
     return <>
-    <Nav/>
+    <Nav/> 
     <main>
     <Hero/>
     <Lanjut/>
@@ -16,6 +16,6 @@ export const Homepage = () => {
     <FilmTrending/>
     <Rilis/>
     </main>
-    <Footer/>
+     <Footer/>
     </>
 }

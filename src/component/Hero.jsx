@@ -10,7 +10,7 @@ export const Hero = () => {
     useEffect(() => {
         
         const element = document.getElementById("desc");
-        if (element) clamp(element, { clamp: 3 });
+        clamp(element, { clamp: 3 });
         setVideo("./picture/suzumetrailer.mp4")
     }, []);
     
@@ -24,17 +24,17 @@ export const Hero = () => {
         className={`object-cover w-full ease-out duration-500 transition-all max-h-[850px] min-h-[400px] object-top ${
             fixed ? "mt-0" : "mt-[94px]"
         }`}
-        src={video}
+        src="./picture/suzumetrailer.mp4"
         loop={true}
         autoPlay={true}
-        muted={mute}
+        // muted={mute}
         alt="hero-img"
     />
-    <div className="relative z-30 flex flex-col gap-1 justify-end pt-[350px] pb-[40px] md:gap-5 md:pb-[80px] px-5 h-[600px] mt-[-599px] bg-home-gradient">
+    <div className="relative z-30 flex flex-col gap-1 justify-end pt-[350px] pb-[40px] md:gap-5 md:pb-[60px] px-5 h-[600px] mt-[-599px] bg-home-gradient">
         <h1 className="text-[40px]">Suzume</h1>
         <p
             id="desc"
-            className="md:w-[50%] h-[200px]  text-[16px]"
+            className=" h-auto w-1/2  break-words text-[16px]"
         >
             Suzume No Tojimari berkisah tentang petualangan seorang perempuan bernama Suzume dan lelaki misterius bernama Souta dalam mencegah bencana gempa bumi terjadi di seantero Jepang. Bencana itu terjadi lantaran sebelumnya Suzume tertarik pada kekuatan sebuah pintu lapuk dan membuka kenopnya.
         </p>
