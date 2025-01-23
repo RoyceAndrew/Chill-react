@@ -36,7 +36,7 @@ export const Lanjut = () => {
             
           },
           {
-            breakpoint: 768,
+            breakpoint: 540,
             settings: {
               slidesToShow: 4,
               slidesToScroll: 1,
