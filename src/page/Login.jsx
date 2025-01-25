@@ -9,7 +9,7 @@ export const Login = () => {
     const navigate = useNavigate()
     const [password, setPassword] = useState("")
     const [username, setUsername] = useState("")
-    const [, setLog] = useContext(UserContext)
+    const { setLog} = useContext(UserContext)
 
     function handleSubmit(e) {
        e.preventDefault()

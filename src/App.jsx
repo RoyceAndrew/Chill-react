@@ -7,22 +7,27 @@ import { useContext, useEffect, useState } from "react"
 import { UserContext } from "./context/UserContext"
 
 function App() {
-  const [logedin,] = useContext(UserContext)
+  const {logedin, isLoading} = useContext(UserContext)
   const [check, setCheck] = useState(false)
+
+ 
 
   useEffect(() => {
     setCheck(logedin)
     },[logedin])
   
+    if (isLoading) {
+      return <div className="width-full h-screen flex justify-center items-center"><p>Loading...</p></div>;
+    }
   
   return (
     <>
       <BrowserRouter>
       <Routes>
-        <Route path="/register" element={!check ? <Register/> : <Navigate to="/"/>} />
-        <Route path="/login" element={!check ? <Login/> : <Navigate to="/"/>} />
-        <Route path="/" element={check ? <Homepage/> : <Navigate to="/login"/>} />
-        <Route path="/profile" element={check ? <Profile/> : <Navigate to="/login"/>} />
+        <Route path="/register" element={!logedin? <Register/> : <Navigate to="/"/>} />
+        <Route path="/login" element={!logedin ? <Login/> : <Navigate to="/"/>} />
+        <Route path="/" element={logedin ? <Homepage/> : <Navigate to="/login"/>} />
+        <Route path="/profile" element={logedin ? <Profile/> : <Navigate to="/login"/>} />
       </Routes>
       </BrowserRouter>
     </>

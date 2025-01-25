@@ -1,35 +1,41 @@
 import { useContext, useEffect, useState } from "react"
 import { ScrollContext } from "../context/ScrollAnimation"
 import clamp from 'clamp-js';
+import { UserContext } from "../context/UserContext";
+import ReactPlayer from 'react-player';
 
 export const Hero = () => {
     const {fixed} = useContext(ScrollContext)
-    const [mute, setMute] = useState(false);
-    const [video, setVideo] = useState(null);
+    const [mute, setMute] = useState(true);
 
+    
     useEffect(() => {
         
-        const element = document.getElementById("desc");
-        clamp(element, { clamp: 3 });
-        setVideo("./picture/suzumetrailer.mp4")
+            const element = document.getElementById("desc");
+            if (element) {
+                clamp(element, { clamp: 3 });
+            }
+            
+      
     }, []);
     
     const handleClick = () => setMute(!mute);
-    
 
-    return <section id="hero">
-    <video
-    key="hero-video"
-    id="hero-video"
-        className={`object-cover w-full ease-out duration-500 transition-all max-h-[850px] min-h-[400px] object-top ${
-            fixed ? "mt-0" : "mt-[94px]"
-        }`}
-        src="./picture/suzumetrailer.mp4"
-        loop={true}
-        autoPlay={true}
-        muted={mute}
-        alt="hero-img"
-    />
+    return   <section id="hero">
+        <video
+       
+        id="hero-video"
+            className={`object-cover w-full ease-out duration-500 transition-all max-h-[850px] min-h-[400px] object-top ${
+                fixed ? "mt-0" : "mt-[94px]"
+            }`}
+            src="./picture/suzumetrailer.mp4"
+            loop={true}
+            autoPlay={true}
+            muted={mute}
+            preload="auto"
+            alt="hero-img"
+        />
+    
     <div className="relative z-30 flex flex-col gap-1 justify-end pt-[350px] pb-[40px] md:gap-5 md:pb-[60px] px-5 h-[600px] mt-[-599px] bg-home-gradient">
         <h1 className="text-[40px]">Suzume</h1>
         <p
