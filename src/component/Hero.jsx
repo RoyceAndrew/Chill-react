@@ -5,7 +5,7 @@ import { ScrollContext } from "../context/ScrollAnimation";
 
 export const Hero = () => {
     const { fixed } = useContext(ScrollContext);
-    const [mute, setMute] = useState(false);
+    const [mute, setMute] = useState(true);
     const [video, setVideo] = useState(null);
 
     useEffect(() => {
