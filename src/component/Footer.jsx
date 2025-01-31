@@ -2,7 +2,7 @@ import { FooterBantuan } from "./FooterBantuan"
 import { FooterGenre } from "./FooterGenre"
 
 export const Footer = () => {
-    return <footer className="flex items-start flex-col p-[20px] xl:flex-row border-t border-t-white/50">
+    return <footer className="flex mt-[10] items-start flex-col p-[20px] xl:flex-row border-t border-t-white/50">
     <div id="copyright" className="mb-[30px]" >
      <img src="./picture/Logo.png" alt="chill-logo"/>
      <p>©2024 Chill All Rights Reserved.</p>

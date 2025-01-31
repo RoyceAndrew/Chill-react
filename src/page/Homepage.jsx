@@ -1,10 +1,8 @@
 import { Nav } from "../component/Nav"
 import { Hero } from "../component/Hero"
 import { Lanjut } from "../component/Lanjut"
-import { TopRating } from "../component/TopRating"
-import { FilmTrending } from "../component/FilmTrending"
-import { Rilis } from "../component/Rilis"
 import { Footer } from "../component/Footer"
+import { ItemList } from "../component/ItemList"
 
 export const Homepage = () => {
     return <>
@@ -12,9 +10,7 @@ export const Homepage = () => {
     <main>
     <Hero/>
     <Lanjut/>
-    <TopRating/>
-    <FilmTrending/>
-    <Rilis/>
+    <ItemList/>
     </main>
      <Footer/>
     </>

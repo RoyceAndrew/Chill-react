@@ -1,8 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { ScrollContext } from "../context/ScrollAnimation"
 import clamp from 'clamp-js';
-import { UserContext } from "../context/UserContext";
-import ReactPlayer from 'react-player';
+
 
 export const Hero = () => {
     const {fixed} = useContext(ScrollContext)
@@ -46,10 +45,10 @@ export const Hero = () => {
         </p>
         <div className="flex justify-between">
             <div className="flex flex-row items-center">
-                <button className="bg-blue-700 text-[12px] md:text-base hover:bg-blue-800 border-0 py-2.5 px-5 rounded-full cursor-pointer transition-all duration-300 ease-out">
+                <button className="bg-blue-700 text-[10px] md:text-base hover:bg-blue-800 border-0 py-2.5 px-5 rounded-full cursor-pointer transition-all duration-300 ease-out">
                     Mulai
                 </button>
-                <button className="border-0 md:ml-4 md:text-base ml-1 text-[12px] bg-home-color hover:bg-gray-800 py-[10px] px-[20px] rounded-3xl cursor-pointer transition-all duration-300 ease-out">
+                <button className="border-0 md:ml-4 md:text-base ml-1 text-[10px] bg-home-color hover:bg-gray-800 py-[10px] px-[20px] rounded-3xl cursor-pointer transition-all duration-300 ease-out">
                     ⓘ Selengkapnya
                 </button>
                 <p className="w-[20px] h-[20px] flex ring-1 md:ml-4 ml-1 ring-white items-center p-[20px] justify-center rounded-full">

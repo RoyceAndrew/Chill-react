@@ -3,7 +3,7 @@ import { dataHoriz } from "../data/datahoriz"
 
 export const Lanjut = () => {
 
-    return <section className="p-[20px] flex items-start overflow-hidden  xl:items-center  justify-center bg-home-color flex-col w-full" id="series">
+    return <section className="p-[20px] flex items-start   xl:items-center  justify-center bg-home-color flex-col w-full" id="series">
     <div>
         <h2 className="xl:text-[30px] text-[20px]">Melanjutkan Tonton Film</h2>
         <div className=" flex xl:gap-[20px] gap-[20px] mt-[20px] w-full justify-start">
